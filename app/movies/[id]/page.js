@@ -23,8 +23,20 @@ async function fetchTrailerEmbedUrl(movieName) {
     body: JSON.stringify({ name: movieName }),
   });
 
-  const data = await res.json();
-  return data.embedUrl || null;
+  if (!res.ok) {
+    const errorText = await res.text();
+    console.error("Error fetching trailer:", res.status, errorText);
+    return null;
+  }
+
+  try {
+    const data = await res.json();
+    return data.embedUrl || null;
+  } catch (err) {
+    const text = await res.text();
+    console.error("Failed to parse JSON:", text);
+    return null;
+  }
 }
 
 export default async function Shows({ params }) {
