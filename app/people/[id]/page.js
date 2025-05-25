@@ -50,7 +50,7 @@ export default async function ActorPage({ params }) {
             {castCredits.map((credit, idx) => {
               const show = credit._embedded?.show;
               return (
-                <Link href={`/movies/${show.id}`}>
+                <Link key={idx} href={`/movies/${show.id}`}>
                   <li key={idx} className="p-4 rounded shadow text-center">
                     <h3 className="font-bold text-lg">{show?.name}</h3>
                     {show?.image?.medium && (
