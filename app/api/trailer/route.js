@@ -5,12 +5,14 @@
   not whole youtube link.
 */
 
+import { NextResponse } from "next/server";
+
 export async function POST(request) {
   const body = await request.json();
   const movieName = body?.name;
 
   if (!movieName) {
-    return Response.json({ error: "name missing" }, { status: 400 });
+    return NextResponse.json({ error: "name missing" }, { status: 400 });
   }
 
   const apiKey = process.env.TMDB_API_KEY;
@@ -26,7 +28,7 @@ export async function POST(request) {
     const movieId = searchData.results?.[0]?.id;
 
     if (!movieId) {
-      return Response.json({ error: "Movie not found" }, { status: 404 });
+      return NextResponse.json({ error: "Movie not found" }, { status: 404 });
     }
 
     const videoRes = await fetch(
@@ -39,13 +41,13 @@ export async function POST(request) {
     );
 
     if (!trailer) {
-      return Response.json({ error: "Trailer not found" }, { status: 404 });
+      return NextResponse.json({ error: "Trailer not found" }, { status: 404 });
     }
 
     const embedUrl = `https://www.youtube.com/embed/${trailer.key}`;
-    return Response.json({ ok: true, embedUrl });
+    return NextResponse.json({ ok: true, embedUrl });
   } catch (err) {
     console.error(err);
-    return Response.json({ error: "Server error" }, { status: 500 });
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
