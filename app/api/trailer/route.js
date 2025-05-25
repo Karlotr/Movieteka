@@ -16,6 +16,7 @@ export async function POST(request) {
   }
 
   const apiKey = process.env.TMDB_API_KEY;
+  console.log("Api key is:", apiKey);
 
   try {
     const searchRes = await fetch(
