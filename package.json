@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4",
     "firebase": "^11.8.1",
     "lucide-react": "^0.511.0",
     "next": "15.3.2",
@@ -19,7 +20,6 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
     "tailwindcss": "^4.1.7"
