@@ -10,6 +10,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function SearchBar() {
   const [query, setQuery] = useState("");
@@ -63,7 +64,7 @@ export default function SearchBar() {
             <Link key={item.show.id} href={`/movies/${item.show.id}`}>
               <li className="flex items-center gap-2 p-2 hover:bg-gray-100 hover:bg-opacity-50 hover:text-black cursor-pointer">
                 {item.show.image?.medium ? (
-                  <img
+                  <Image
                     src={item.show.image.medium}
                     alt={item.show.name}
                     className="w-10 h-14 object-cover rounded"

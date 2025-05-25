@@ -7,6 +7,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function FavoritesRow({ title = "Favorites" }) {
   const [shows, setShows] = useState([]);
@@ -60,7 +61,9 @@ export default function FavoritesRow({ title = "Favorites" }) {
           >
             <Link href={`/movies/${show.id}`}>
               {show.image ? (
-                <img
+                <Image
+                  width={150}
+                  height={192}
                   src={show.image}
                   alt={show.name}
                   className="rounded-lg w-full h-48 object-cover"

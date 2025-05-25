@@ -122,10 +122,12 @@ export default async function Shows({ params }) {
               >
                 <Link href={`/people/${person.id}`}>
                   {person.image?.medium ? (
-                    <img
+                    <Image
                       src={person.image.medium}
                       alt={person.name}
-                      className="w-24 h-32 object-cover rounded"
+                      width={96}
+                      height={128}
+                      className="object-cover rounded"
                     />
                   ) : (
                     <div className="w-24 h-32 bg-gray-300 flex items-center justify-center text-sm rounded">
