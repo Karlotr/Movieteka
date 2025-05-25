@@ -9,7 +9,7 @@ import Image from "next/image";
 
 export default function GenreRow({ title, shows }) {
   return (
-    <section>
+    <div>
       <h2 className="text-4xl font-bold mb-1">{title}</h2>
       <div className="flex overflow-x-auto space-x-4 pb-4">
         {shows.map((show) => (
@@ -35,6 +35,6 @@ export default function GenreRow({ title, shows }) {
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }
