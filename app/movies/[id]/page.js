@@ -14,7 +14,7 @@ import FavoriteButton from "@/app/components/FavoriteButton";
 
 async function fetchTrailerEmbedUrl(movieName) {
   const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
+    ? `https://movieteka-zeta.vercel.app`
     : "http://localhost:3000";
 
   const res = await fetch(`${baseUrl}/api/trailer`, {
